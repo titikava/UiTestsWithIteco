@@ -16,17 +16,31 @@ jobs:
     stage: build
     image: openjdk:11
     script:
-      - ./gradlew build -x test
-      - ./gradlew check -x test
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build with Gradle
+        run: ./gradlew build -x test
+
+      - name: Check with Gradle
+        run: ./gradlew check -x test
 
   unit_tests:
     stage: unit_tests
     image: openjdk:11
     script:
-      - ./gradlew test --tests CalculatorTest
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run unit tests
+        run: ./gradlew test --tests CalculatorTest
 
   system_test:
     stage: system_test
     image: openjdk:11
     script:
-      - ./gradlew test --tests "api.*"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run system tests
+        run: ./gradlew test --tests "api.*"
