@@ -80,7 +80,7 @@ public class CalculatorTest {
         numbers.add(3);
         numbers.add(4);
         long actualResult = calculator.multiple(numbers);
-        int expectedResult = 240;
+        int expectedResult = 24;
         softly.assertThat(actualResult).isEqualTo(expectedResult);
     }
 
