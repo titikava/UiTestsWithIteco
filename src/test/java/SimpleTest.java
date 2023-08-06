@@ -32,4 +32,20 @@ public class SimpleTest {
     public void checkHeading(){
         homePage.checkHeading();
     }
+
+
+    //проверка на добавление нового имени в таблицу и его поиск
+    @Test
+    public void addCustomer(){
+        homePage.openHomePage()
+                .clickBankManager()
+                .clickAddCustomer()
+                .inputFirstName()
+                .inputLastName()
+                .inputPostCode()
+                .clickSubmitAddCustomer()
+                .dismissAlert();
+        homePage.clickCustomers()
+                .checkFirstNameInTable("Jackson");
+    }
 }

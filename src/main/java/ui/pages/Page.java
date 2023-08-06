@@ -7,33 +7,53 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.element;
 
 public class Page {
-    public SelenideElement buttonHome(){
+    public SelenideElement buttonHome() {
         return element(By.xpath("//button[@class='btn home']"));
     }
 
-    public SelenideElement headingHome(){
+    public SelenideElement headingHome() {
         return element(By.xpath("//strong[@class='mainHeading']"));
     }
 
-    public SelenideElement bankManagerLogin(){
+    public SelenideElement bankManagerLogin() {
         return element(By.xpath("//button[@ng-click='manager()']"));
     }
 
-    public SelenideElement buttonAddCustomer(){
+    public SelenideElement buttonAddCustomer() {
         return element(By.xpath("//button[@ng-class='btnClass1']"));
     }
 
-    public void checkPageManager(){
-        try {
-            buttonAddCustomer().shouldBe(Condition.exactOwnText("Add Customer"));
-            System.out.println("Button text - Add Customer");
-        } catch (Exception e) {
-            System.out.println("The button text does not match");
-        }
-
+    public SelenideElement jacksonCheck(){
+        return element(By.xpath("//*[contains(text(),'Jackson')]"));
     }
 
+    public SelenideElement buttonCustomers() {
+        return element(By.xpath("//button[@ng-class='btnClass3']"));
+    }
 
+    public SelenideElement firstName(){
+        return element(By.xpath("//input[@placeholder='First Name']"));
+    }
 
+    public SelenideElement lastName(){
+        return element(By.xpath("//input[@placeholder='Last Name']"));
+    }
+
+    public SelenideElement postCode(){
+        return element(By.xpath("//input[@placeholder='Post Code']"));
+    }
+
+    public SelenideElement submitAddCustomer(){
+        return element(By.xpath("//button[@type='submit']"));
+    }
+
+    public SelenideElement inputSearchCustomer(){
+        return element(By.xpath("//input[@ng-model='searchCustomer']"));
+    }
 
 }
+
+
+
+
+
