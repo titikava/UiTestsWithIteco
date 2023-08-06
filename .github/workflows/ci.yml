@@ -16,7 +16,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
-          java-version: 11
+          java-version: 1.8
 
       - name: Build with Gradle
         run: ./gradlew build -x test
@@ -34,7 +34,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
-          java-version: 11
+          java-version: 1.8
 
       - name: Run unit tests
         run: ./gradlew test --tests CalculatorTest
@@ -49,7 +49,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
-          java-version: 11
+          java-version: 1.8
 
       - name: Run system tests
         run: ./gradlew test --tests "api.*"
