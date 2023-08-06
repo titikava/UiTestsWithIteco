@@ -14,10 +14,15 @@ stages:
 jobs:
   build:
     stage: build
-    image: openjdk:11
-    script:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
 
       - name: Build with Gradle
         run: ./gradlew build -x test
@@ -27,20 +32,30 @@ jobs:
 
   unit_tests:
     stage: unit_tests
-    image: openjdk:11
-    script:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
 
       - name: Run unit tests
         run: ./gradlew test --tests CalculatorTest
 
   system_test:
     stage: system_test
-    image: openjdk:11
-    script:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
 
       - name: Run system tests
         run: ./gradlew test --tests "api.*"
