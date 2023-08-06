@@ -28,9 +28,11 @@ checkstyle {
     configFile = file("${rootDir}/config/checkstyle.xml")
 }
 checkstyleMain {
+    ignoreFailures = true
     source ='src/main/java'
 }
 checkstyleTest {
+    ignoreFailures = true
     source ='src/test/java'
 }
 

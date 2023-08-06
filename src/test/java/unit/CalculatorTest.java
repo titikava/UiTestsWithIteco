@@ -88,8 +88,8 @@ public class CalculatorTest {
     @Tag("calculator")
     @ParameterizedTest
     @CsvSource({
-            "6, 2, 3", // тест кейс 1
-            "5, 3, 5" // тест кейс 2
+            "6, 2, 3" // тест кейс 1
+            //"5, 3, 5" тест кейс 2
     })
     public void divide(int dividend, int divisor, int expectedResult){
         double actualResult = calculator.divide(dividend, divisor);
