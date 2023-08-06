@@ -5,16 +5,10 @@ on:
     branches:
       - master
 
-stages:
-  - build
-  - unit_tests
-  - system_test
-  - metrics
-
 jobs:
   build:
-    stage: build
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -31,8 +25,8 @@ jobs:
         run: ./gradlew check -x test
 
   unit_tests:
-    stage: unit_tests
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -46,8 +40,8 @@ jobs:
         run: ./gradlew test --tests CalculatorTest
 
   system_test:
-    stage: system_test
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
